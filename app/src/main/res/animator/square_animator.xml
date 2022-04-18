@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:duration="400">
+        <propertyValuesHolder
+            android:propertyName="width"
+            android:valueTo="60dp"
+            android:valueType="floatType"
+            />
+        <propertyValuesHolder
+            android:propertyName="height"
+            android:valueTo="60dp"
+            android:valueType="floatType"
+            />
+        <propertyValuesHolder
+            android:propertyName="background"
+            android:valueTo="#FFFF2903"
+            android:valueType="floatType"
+            />
+    </objectAnimator>
+</set>
