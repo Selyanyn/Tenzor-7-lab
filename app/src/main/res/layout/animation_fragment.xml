@@ -7,14 +7,36 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/square"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FF6200EE"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="12dp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/rectangle"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:background="#BBBBBB"
+        app:layout_constraintStart_toEndOf="@id/square"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintTop_toTopOf="@id/square" />
+
+    <Button
+        android:id="@+id/animaton_button"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="132dp" />
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#D0D0D0"
+        android:textColor="@color/black"
+        android:text="@string/animate_text"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
