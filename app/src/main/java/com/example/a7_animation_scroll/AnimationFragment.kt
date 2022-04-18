@@ -1,16 +1,17 @@
 package com.example.a7_animation_scroll
 
-import android.animation.AnimatorInflater
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.view.animation.AnimationUtils
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+
 
 class AnimationFragment : Fragment(R.layout.animation_fragment) {
 
@@ -36,10 +37,21 @@ class AnimationFragment : Fragment(R.layout.animation_fragment) {
                 start()
             }
 
-            ValueAnimator.ofInt(square.height, 60).apply {
+            ValueAnimator.ofInt(square.height, (60 * density!!).toInt()).apply {
                 duration = 400L
+                addUpdateListener { valueAnimator : ValueAnimator ->
+                    val animatedValue = valueAnimator.animatedValue as Int
+                    square.layoutParams.width = animatedValue
+                    square.layoutParams.height = animatedValue
+                    square.requestLayout()
+                }
                 start()
             }
+
+            val colorAnimator = ObjectAnimator.ofArgb(square, "backgroundColor", Color.parseColor("#FF6200EE"), Color.parseColor("#FFFF2903"))
+            colorAnimator.duration = 400L
+            colorAnimator.interpolator = AccelerateDecelerateInterpolator()
+            colorAnimator.start()
         }
     }
 
